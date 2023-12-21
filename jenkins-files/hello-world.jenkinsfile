@@ -1,0 +1,21 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Hello') {
+      steps {
+        echo('Hello from GitHub');
+      }
+    }
+
+    stage('Show user name') {
+      steps {
+        script {
+          final String longEpicName = 'Big ' + params.your_epic_name;
+          echo("Hello Mister ${longEpicName}");
+          echo("Yoy are ${params.age} years old");
+        }
+      }
+    }
+  }
+}
